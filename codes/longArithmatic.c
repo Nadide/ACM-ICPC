@@ -11,16 +11,13 @@ int main ()
 	int i, j;
 	
 	scanf ("%s %s", a, b);
-	for (i=strlen(a)-1; i>=0; ++i) {
-		number1[++len1] = (a[i] - '0');
-		printf ()
-	}
-	for (i=strlen(b)-1; i>=0; ++i)
-		number2[++len2] = (b[i] - '0');
-	maxsize = MAX(len1,len2);
-	printf ("%d\n", maxsize);
 	
+	for (i=strlen(a)-1; i>=0; --i) 
+		number1[len1++] = (int)(a[i] - '0');
+	for (i=strlen(b)-1; i>=0; --i)
+		number2[len2++] = (int)(b[i] - '0');
 
+	maxsize = MAX(len1,len2);
 	for (i=0; i<maxsize; i++) {
 		result[i]+= number1[i]+number2[i];
 		if (result[i]>9) {
@@ -31,6 +28,7 @@ int main ()
 	if (result[maxsize]!=0)
 		maxsize++;
 
-	for (; maxsize>=0; maxsize--)
-		printf ("%d ", result[maxsize]);
+	for (--maxsize; maxsize>=0; --maxsize)
+		printf ("%d", result[maxsize]);
+	printf ("\n");
 }

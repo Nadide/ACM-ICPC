@@ -19,19 +19,10 @@ main ()
 		if (was[i] == 0)
 			primes[nPr++] = i;
 
-	/*for (i=1; i<nPr-1; i++) {
-		sum = primes[i]+primes[i+1]+1;
-		//printf ("%d + %d = %d\n", primes[i], primes[i+1], sum);
-		for (j=i+2; primes[j]<=sum; j++)
-			if (sum == primes[j]) {
-				count++;
-				break;
-		}
-	}*/
-
 	for (i=1; i<nPr; i++)
 		if (was[1+primes[i]+primes[i+1]]==0 && 1+primes[i]+primes[i+1]<=n)
 			count++;
+
 	if (count >= k)
 		printf ("YES\n");
 	else

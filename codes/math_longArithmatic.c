@@ -1,3 +1,4 @@
+// Addition
 #include <stdio.h>
 #include <string.h>
 #define MAX(len1,len2) (len1>len2)?(len1):(len2)
@@ -10,8 +11,7 @@ int main ()
 	int len1=0, len2=0, maxsize;
 	int i, j;
 	
-	scanf ("%s %s", a, b);
-	
+	scanf ("%s %s", a, b);	
 	for (i=strlen(a)-1; i>=0; --i) 
 		number1[len1++] = (int)(a[i] - '0');
 	for (i=strlen(b)-1; i>=0; --i)
@@ -25,7 +25,7 @@ int main ()
 			result[i]%= 10;
 		}
 	}
-	if (result[maxsize]!=0)
+	if (result[maxsize] != 0)
 		maxsize++;
 
 	for (--maxsize; maxsize>=0; --maxsize)

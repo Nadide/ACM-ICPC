@@ -3,7 +3,7 @@
 #define MAX 0X7FFFFFFF
 int g[101][101];
 int used[101];
-int dist[101];
+int d[101];
 
 int main ()
 {
@@ -24,21 +24,21 @@ int main ()
 		
 		for (j=1; j<=n; ++j) {
 			if (g[current][j] && !used[j])
-				if (!dist[j] || dist[j]>dist[current]+g[current][j])
-					dist[j] = dist[current]+g[current][j];
+				if (!d[j] || d[j] > d[current]+g[current][j])
+					d[j] = d[current]+g[current][j];
 		}
 		
 		min = MAX;
 		for (j=1; j<=n; ++j) {
-			if (dist[j] && !used[j])
-				if (dist[j] < min) {
+			if (d[j] && !used[j])
+				if (d[j] < min) {
 					current = j;
-					min = dist[j];
+					min = d[j];
 				}
 		}
 		used[current] = 1;
 	}	
-	printf ("%d\n", dist[end]);
+	printf ("%d\n", d[end]);
 
 	return 0;
 }

@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 int array[1001];
 
-int swap(int *a, int *b) {
+int compare (int *a, int *b) {
 	return *a-*b;
 }
 
@@ -27,7 +28,7 @@ int main ()
 	scanf ("%d %d", &n, &key);
 	for (i=0; i<n; i++)
 		scanf ("%d", &array[i]);
-	qsort (array, n, sizeof(int), swap);
+	qsort (array, n, sizeof(int), compare);
 
 	printf ("Array in order: ");
 	for (i=0; i<n; ++i)

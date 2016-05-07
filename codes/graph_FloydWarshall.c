@@ -1,4 +1,5 @@
-// All Pairs Shortest Path  
+// All Pairs Shortest Path by Floyd Warshall 
+// Shortest path from every vertex to every other vertex
 #include <stdio.h>
 int g[101][101];
 int d[101][101];

@@ -2,13 +2,19 @@
 
 int GCD (int a, int b)
 {
-	if (a==0 || b==0)
-		return a+b;
-	if (a>b)
-		return GCD(a%b, b);
-	if (b>a) 
-		return GCD(a, b%a);
+	return b == 0 ? a : GCD (b,a%b); 
 }
+
+/* int GCD (int a, int b) 
+{
+	for (;;) {
+		if (a == 0) return b;
+		b %= a;
+		if (b == 0) return a;
+		a %= b;
+	}
+}
+*/
 
 int main ()
 {

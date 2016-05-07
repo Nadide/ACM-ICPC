@@ -1,4 +1,5 @@
-//Djikstra's Shortest Path
+// Djikstra's Shortest Path
+// Shortest path from source to all vertices
 #include <stdio.h>
 #define MAX 0X7FFFFFFF
 int g[101][101];

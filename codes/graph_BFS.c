@@ -1,19 +1,17 @@
 //Breadth First Search
 #include <stdio.h>
-int g[1001][1001];
-int n, m, start, end;
-int was[1001], reach; 
-int q[1001], qBgn, qEnd, node;
+int g[1001][1001],n,m;
+int was[1001],q[1001];
+int qBgn, qEnd, node;
 
 int main ()
 {
 	int i, j, a, b;
 
 	scanf ("%d %d", &n, &m);
-	scanf ("%d %d", &start, &end);
 	for (i=0; i<m; ++i) {
 		scanf ("%d %d", &a, &b);
-		g[a][b] = 1;
+		g[a][b] = g[b][a] = 1;
 	}
 
 	/*PATHS
@@ -23,7 +21,7 @@ int main ()
 	*/
 
 	printf ("Route: ");
-	node = start;
+	node = 1;
 	was[node] = 1; 
 	for (i=0; i<n-1; ++i) {
 		printf ("%d ", node);
@@ -34,14 +32,9 @@ int main ()
 		//if we make it stack not queue "q[qEnd--]", it'll be DFS	
 	
 		was[node] = 1;
-		if (node == end) {
-			reach = 1;
+		if (node == n)
 			break;
-		}
 	}
-	if (reach == 1)
-		printf ("\nThere is a way\n");
-	else
-		printf ("\nThere is no way\n");
+	printf ("%d\n", node);
 
 }

@@ -1,7 +1,6 @@
 // Euclid's Greatest Common Division Algorithm
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
+#include <cstdio>
+#include <cstdlib>
 
 
 int GCD (int a, int b) 

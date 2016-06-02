@@ -1,7 +1,6 @@
 // Euclid's Least Common Multiple Algorithm
-#include <stdio.h>
-#include <iostream>
-#include <math.h>
+#include <cstdio>
+#include <cmath>
 
 int GCD (int a, int b)
 {

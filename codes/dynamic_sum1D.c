@@ -1,8 +1,7 @@
-// DYNAMIC PROGRAMING 
 // Sums numbers between index l - index r in 1D array
 #include <stdio.h>
 
-main ()
+int main ()
 {
 	int n,l,r;
 	int a[101];

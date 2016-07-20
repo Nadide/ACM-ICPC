@@ -1,4 +1,5 @@
-// time conp = O(N)
+// Sieve Of Eratosthenes
+// time comp = O(N)
 #include <stdio.h>
 #include <math.h>
 

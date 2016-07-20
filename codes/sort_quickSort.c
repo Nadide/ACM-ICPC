@@ -1,45 +1,43 @@
 #include <stdio.h>
 
-void swap (int a[], int i, int j) 
+void swap (int *a, int *b)
 {
-	int x = a[i];
-        a[i] = a[j];  
-        a[j] = x;
+	int c = *a;
+	*a = *b;
+	*b = c;
 }
 
-void qsort (int a[], int n)
+int partition (int a[], int l, int r)
 {
-	int pivot = n-1;
-	int wall = 0;
-	int current = 0;
-	
-	if (n <= 1) return; 
-	
-	for (; current < n; current++) {
-		if (a[current] < a[pivot]) {
-			swap (a,current,wall);
-			wall++;
-		}
-	}
-	swap (a,wall,pivot);
+	int p = r-1;    //pivot
+	int w = l;	//wall
+	for (int i=l; i < r; i++)  //current
+		if (a[i] < a[p])
+			swap (&a[w++], &a[i]);
+	swap (&a[w], &a[p]);
+	return w;	
+}
 
-	// left part
-	qsort (a, wall);
-	
-	// right part
-	qsort (&a[wall+1], n-wall-1);
+void qSort (int a[], int l, int r)
+{
+	if (r-l <= 1) return;
+	int p = partition (a, l, r);
+	qSort (a, l, p);
+	qSort (a, p+1, r);
 }
 
 int main ()
 {
-	int n, a[1001];
+	int n,a[101];
 
 	scanf ("%d", &n);
 	for (int i=0; i<n; i++)
 		scanf ("%d", &a[i]);
 
-	qsort (a, n);	
-	for (int i=0; i<n; i++)	
+	qSort (a, 0, n);
+
+	for (int i=0; i<n; i++)
 		printf ("%d ", a[i]);
 	printf ("\n");
+
 }

@@ -1,8 +1,7 @@
-// DYNAMIC PROGRAMING 
 // Sums numbers between two points in 2D array
 #include <stdio.h>
 
-main ()
+int main ()
 {
 	int i,j;
 	int n,m,x1,x2,y1,y2;

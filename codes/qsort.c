@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 int compare (const void *a, const void *b) {
-	return *(int *)a - *(int *)b;		//smaller to greater
-	//return *(int *)b - *(int *)a;		//greater to smaller
+	return *(int *)a - *(int *)b;		// ascending order
+	//return *(int *)b - *(int *)a;		// descending order
 }
 
 

@@ -1,6 +1,4 @@
 # ACM-ICPC
------------------
-
 
 ###Number theory and Other Mathematical
 - Prime Numbers (Sieve of Eratosthenes)

@@ -22,6 +22,7 @@ int main ()
 			printf ("%c ", g[i][j]);
 		printf ("\n");
 	}
+	
 
 	return 0;
 }

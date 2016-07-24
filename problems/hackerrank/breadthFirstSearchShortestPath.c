@@ -46,7 +46,8 @@ int main() {
                     printf ("-1 ");
         printf ("\n");
         
-        
+	for (i=0; i<qEnd; i++)
+		q[i] = p[i] = 0;         
         for (i=1; i<=n; i++) {
             was[i] = c[i] = 0;
             for (j=1; j<=n; j++)

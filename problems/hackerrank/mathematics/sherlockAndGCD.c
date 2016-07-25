@@ -1,5 +1,3 @@
-// Related Topics: Greatest Common Divisor
-// Status : 15/19 : Wrong Answer
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -12,6 +10,17 @@ int GCD (int a, int b) {
         return a==0 ? b : GCD(a,b%a);
 }
 
+int binary (int a[], int l, int r) {
+    if (r-l == 1) 
+        return a[l];
+    
+    int p1 = binary (a,l,(l+r)/2);
+    int p2 = binary (a,(l+r)/2,r);
+    return GCD (p1,p2);
+    
+    
+}
+
 int main() {
     int t,n,i,j;
     int a[101],x;
@@ -22,20 +31,9 @@ int main() {
         for (int i=0; i < n; i++)
             scanf ("%d", &a[i]);
 
-        for (i=0; i < n; i++) { 
-            for (j=i+1; j < n; j++) 
-                if (a[i] != a[j])
-                {
-                    x = GCD (a[i],a[j]);
-                    //printf ("%d %d  =  %d\n",a[i],a[j],GCD(a[i],a[j]));
-                    if (x == 1)
-                        break;
-                }
-            if (j != n) break;
-        }
-        if (i != n) 
+        if (binary (a,0,n) == 1)
             printf ("YES\n");
-        else 
+        else
             printf ("NO\n");
     }
     

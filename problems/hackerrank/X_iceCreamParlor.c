@@ -48,7 +48,7 @@ int main() {
         for (i=0; i<n; i++) {
             int x = binarySearch (i+1,n,m-a[i]);
             if (x != -1) {
-                count[a[i+1]]  count[a[x+1]]
+                //count[a[i+1]]  count[a[x+1]]
                 printf ("%d %d\n", i+1, x+1);
                 break;
             }

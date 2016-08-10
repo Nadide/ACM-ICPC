@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 struct node {
@@ -6,46 +7,63 @@ struct node {
 	node *l, *r;
 };
 
-bool search (node *parent, int key)
+bool search (node *root, int key)
 {
-	if (parent == NULL)		return false;
-	if (parent->value == key)	return true;
-	if (parent->value > key)	return search(parent->l, key);
-	if (parent->value > key)	return search(parent->r, key);
+	if (root == NULL)		return false;
+	if (root->value == key)	return true;
+	if (root->value > key)	return search(root->l, key);
+	if (root->value > key)	return search(root->r, key);
 }
 
-node* insert (node *parent, int value) 
+node* insert (node *root, int value) 
 {
-	if (parent == NULL) {
-		parent = new node();
-		parent->value = value;
-		parent->l = parent->r = NULL;
+	if (root == NULL) {
+		root = new node();
+		root->value = value;
+		root->l = root->r = NULL;
 	}
-	else if (parent->value > value) 
-		parent->l = insert (parent->l, value);
+	else if (root->value > value) 
+		root->l = insert (root->l, value);
 	else 
-		parent->r = insert (parent->r, value);
+		root->r = insert (root->r, value);
 }
 
-void preorder (node *parent) {
+void preorder (node *root) {
 // root, left, right
-	cout << parent->value << " ";
-	if (parent->l != NULL) preorder (parent->l);
-	if (parent->r != NULL) preorder (parent->r);
+	cout << root->value << " ";
+	if (root->l != NULL) preorder (root->l);
+	if (root->r != NULL) preorder (root->r);
 }
 
-void inorder (node *parent) {
+void inorder (node *root) {
 // left, root, right
-	if (parent->l != NULL) preorder (parent->l);
-	cout << parent->value << " ";
-        if (parent->r != NULL) preorder (parent->r);
+	if (root->l != NULL) preorder (root->l);
+	cout << root->value << " ";
+        if (root->r != NULL) preorder (root->r);
 }
 
-void postorder (node *parent) {
+void postorder (node *root) {
 // left, right, root
-	if (parent->l != NULL) preorder (parent->l);
-        if (parent->r != NULL) preorder (parent->r);
-	cout << parent->value << " ";
+	if (root->l != NULL) preorder (root->l);
+        if (root->r != NULL) preorder (root->r);
+	cout << root->value << " ";
+}
+
+void levelorder (node *root) {
+	if (root == NULL) return;
+	queue<node*> q;
+	for (q.push(root); !q.empty(); q.pop()) {
+		cout << q.front()->value << " ";
+		if (q.front()->l) q.push(q.front()->l);
+		if (q.front()->r) q.push(q.front()->r);
+	}
+}
+
+int height (node *root) {
+	if (root == NULL) return 0;
+	int l = height(root->l);
+	int r = height(root->r);
+	return (l > r) ? (l+1) : (r+1); 
 }
 
 int main ()
@@ -60,10 +78,16 @@ int main ()
 	}
 	cout << root->value << endl;
 
-	preorder (root); cout << endl;
-	inorder  (root); cout << endl;  
-	postorder(root); cout << endl;
-
-	cin  >> x;
+	// height of tree
+	cout << "Height: " << height (root) << endl;
+	
+	// print orders
+	cout << "Preorder:   "; preorder (root); cout << endl;
+	cout << "Inorder:    "; inorder  (root); cout << endl;  
+	cout << "Postorder:  "; postorder(root); cout << endl;
+	cout << "Levelorder: "; levelorder (root); cout << endl;
+	
+	// look for x
+	cout << "Search for: "; cin  >> x; 
 	cout << (search (root, x) ? "Exist" : "Non-Exist") << endl;
 }

@@ -1,10 +1,11 @@
-# ACM-ICPC
+# ACM-ICPC Preparation
 
 ###Number theory and Other Mathematical
 - Prime Numbers (Sieve of Eratosthenes)
 - Greatest Common Division (GCD)
 - Least Common Multiple (LCM)
 - Long Arithmetic (Addition, Multiplication)
+- Modular Exponentiation
 
 ###Geometrical and Network Flow Algorithms
 - Convex Hull
@@ -28,3 +29,7 @@
 
 ###Dynamic Programming
 - Largest Sum Contiguous Subarray
+- Bellman Ford
+
+###Data Structures
+- Trees

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int array[1001];
-
+int count;
 int compare (int *a, int *b) {
 	return *a-*b;
 }
@@ -35,4 +35,5 @@ int main ()
 		printf ("%d ", array[i]);
 	printf ("\nPosition of key: ");
 	printf ("%d\n", binSearch (0, n, key));
+	printf("%d\n", count);
 }

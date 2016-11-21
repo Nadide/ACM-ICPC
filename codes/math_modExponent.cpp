@@ -1,11 +1,11 @@
 // Modular Exponentiation (Power in Modular Aritmetic) (x^y)
-#include <stdio.h>
+#include <iostream>
 #define M 100000007
 
 int main ()
 {
 	long long int x,y,res=1;
-	scanf ("%lld %lld", &x, &y);
+	cin >> x >> y;
 	x = x%M;
 	while (y > 0) {
 		if (y%2) 
@@ -13,7 +13,7 @@ int main ()
 		y = y/2;
 		x= (x*x)%M; 
 	}
-	printf ("%lld\n", res);
+	cout << res << endl;
 
 	return 0;
 }
